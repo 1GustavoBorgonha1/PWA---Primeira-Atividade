@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo de Produtos</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
-
     <header class="header">
         <div class="logo">Meu Mercado</div>
         <nav class="nav">
@@ -78,6 +77,17 @@
         <p>&copy; 2025 Meu Mercado. Todos os direitos reservados.</p>
     </footer>
 
-    <script src="js/app.js"></script>
+     <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+        }
+        
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navList = document.querySelector('.nav-list');
+
+        menuToggle.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
